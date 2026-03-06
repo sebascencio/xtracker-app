@@ -293,7 +293,7 @@ export const mockGames: Game[] = [
   {
     id: '17',
     title: "Assassin's Creed Mirage",
-    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2593010/library_600x900_2x.jpg',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2630930/library_600x900_2x.jpg',
     currentPrice: 24.99,
     originalPrice: 49.99,
     lowestPrice: 24.99,

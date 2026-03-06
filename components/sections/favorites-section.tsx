@@ -46,33 +46,33 @@ export function FavoritesSection({ games, currency, onToggleFavorite, onGameClic
       {favoriteGames.length > 0 ? (
         <>
           {/* Stats Cards */}
-          <div className="flex gap-3 px-5 mb-6 overflow-x-auto hide-scrollbar">
-            <div className="flex-shrink-0 bg-gradient-to-br from-card to-card/50 rounded-2xl p-4 min-w-[130px] border border-border/50">
+          <div className="grid grid-cols-3 gap-3 px-5 mb-6">
+            <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-4 border border-border/50">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-7 h-7 rounded-lg bg-primary/15 flex items-center justify-center">
                   <ShoppingBag className="w-3.5 h-3.5 text-primary" />
                 </div>
               </div>
-              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Valor total</p>
-              <p className="text-xl font-bold text-foreground">{formatPrice(totalValue, currency)}</p>
+              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Valor</p>
+              <p className="text-lg font-bold text-foreground truncate">{formatPrice(totalValue, currency)}</p>
             </div>
-            <div className="flex-shrink-0 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-4 min-w-[130px] border border-primary/20">
+            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-4 border border-primary/20">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center">
                   <TrendingDown className="w-3.5 h-3.5 text-primary" />
                 </div>
               </div>
-              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Ahorro total</p>
-              <p className="text-xl font-bold text-primary">{formatPrice(totalSavings, currency)}</p>
+              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Ahorro</p>
+              <p className="text-lg font-bold text-primary truncate">{formatPrice(totalSavings, currency)}</p>
             </div>
-            <div className="flex-shrink-0 bg-gradient-to-br from-card to-card/50 rounded-2xl p-4 min-w-[130px] border border-border/50">
+            <div className="bg-gradient-to-br from-card to-card/50 rounded-2xl p-4 border border-border/50">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-7 h-7 rounded-lg bg-primary/15 flex items-center justify-center">
                   <Bell className="w-3.5 h-3.5 text-primary" />
                 </div>
               </div>
-              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mb-0.5">En oferta</p>
-              <p className="text-xl font-bold text-foreground">{gamesOnSale}</p>
+              <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mb-0.5">Ofertas</p>
+              <p className="text-lg font-bold text-foreground">{gamesOnSale}</p>
             </div>
           </div>
 
