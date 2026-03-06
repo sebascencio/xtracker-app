@@ -1,44 +1,23 @@
 "use client"
 
-import { ChevronRight, Flame, TrendingDown, Sparkles, Gamepad2 } from 'lucide-react'
+import { ChevronRight, Flame, TrendingDown, Sparkles } from 'lucide-react'
 import { GameCard } from '@/components/game-card'
-import { CurrencySelector } from '@/components/currency-selector'
 import type { Game, Currency } from '@/lib/types'
 
 interface HomeSectionProps {
   games: Game[]
   currency: Currency
-  onCurrencyChange: (currency: Currency) => void
   onToggleFavorite: (id: string) => void
   onGameClick: (game: Game) => void
 }
 
-export function HomeSection({ games, currency, onCurrencyChange, onToggleFavorite, onGameClick }: HomeSectionProps) {
+export function HomeSection({ games, currency, onToggleFavorite, onGameClick }: HomeSectionProps) {
   const featuredGames = games.filter(g => g.discount >= 50).slice(0, 5)
   const lowestEverGames = games.filter(g => g.currentPrice <= g.lowestPrice).slice(0, 4)
-  const newDeals = games.filter(g => g.discount > 0).slice(0, 6)
+  const newDeals = games.filter(g => g.discount > 0).slice(0, 8)
 
   return (
-    <div className="pb-28">
-      {/* Header */}
-      <header className="px-5 pt-6 pb-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg shadow-primary/30">
-              <Gamepad2 className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-foreground tracking-tight">XPrice</h1>
-              <p className="text-xs text-muted-foreground font-medium">Rastreador de precios Xbox</p>
-            </div>
-          </div>
-          <CurrencySelector 
-            selectedCurrency={currency}
-            onCurrencyChange={onCurrencyChange}
-          />
-        </div>
-      </header>
-
+    <div className="pt-20 pb-28">
       {/* Stats Bar */}
       <div className="mx-5 mb-6 p-4 rounded-2xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20">
         <div className="flex items-center justify-between">

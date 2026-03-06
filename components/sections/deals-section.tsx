@@ -14,13 +14,13 @@ interface DealsSectionProps {
 }
 
 type SortOption = 'discount' | 'price_low' | 'price_high' | 'name'
-type FilterCategory = 'all' | 'RPG' | 'Shooter' | 'Racing' | 'Adventure' | 'Simulation' | 'Strategy'
+type FilterCategory = 'all' | 'RPG' | 'Shooter' | 'Racing' | 'Adventure' | 'Simulation' | 'Strategy' | 'Sports' | 'Horror' | 'Fighting'
 
 export function DealsSection({ games, currency, onToggleFavorite, onGameClick }: DealsSectionProps) {
   const [sortBy, setSortBy] = useState<SortOption>('discount')
   const [filterCategory, setFilterCategory] = useState<FilterCategory>('all')
 
-  const categories: FilterCategory[] = ['all', 'RPG', 'Shooter', 'Racing', 'Adventure', 'Simulation', 'Strategy']
+  const categories: FilterCategory[] = ['all', 'RPG', 'Shooter', 'Racing', 'Adventure', 'Sports', 'Horror', 'Fighting']
 
   const filteredGames = games
     .filter(g => g.discount > 0)
@@ -41,9 +41,9 @@ export function DealsSection({ games, currency, onToggleFavorite, onGameClick }:
     })
 
   return (
-    <div className="pb-28">
+    <div className="pt-20 pb-28">
       {/* Header */}
-      <header className="px-5 pt-6 pb-4">
+      <header className="px-5 pt-2 pb-4">
         <div className="flex items-center gap-3 mb-1">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg shadow-primary/30">
             <Tag className="w-6 h-6 text-primary-foreground" />

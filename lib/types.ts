@@ -33,7 +33,21 @@ export interface Notification {
   oldPrice?: number
 }
 
-export type TabType = 'home' | 'deals' | 'favorites' | 'notifications' | 'search'
+export type TabType = 'home' | 'deals' | 'favorites' | 'profile' | 'search'
+
+export interface UserProfile {
+  id: string
+  name: string
+  email: string
+  gamertag: string
+  avatar: string
+  plan: 'free' | 'premium'
+  memberSince: string
+  alertsEnabled: boolean
+  priceDropAlerts: boolean
+  lowestEverAlerts: boolean
+  wishlistAlerts: boolean
+}
 
 export interface Currency {
   code: string

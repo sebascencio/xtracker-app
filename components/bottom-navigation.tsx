@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Tag, Heart, Bell, Search } from 'lucide-react'
+import { Home, Tag, Heart, User, Search } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { TabType } from '@/lib/types'
 
@@ -16,7 +16,7 @@ export function BottomNavigation({ activeTab, onTabChange, notificationCount = 0
     { id: 'deals', icon: Tag, label: 'Ofertas' },
     { id: 'search', icon: Search, label: 'Buscar' },
     { id: 'favorites', icon: Heart, label: 'Lista' },
-    { id: 'notifications', icon: Bell, label: 'Alertas' },
+    { id: 'profile', icon: User, label: 'Perfil' },
   ]
 
   return (
@@ -49,7 +49,7 @@ export function BottomNavigation({ activeTab, onTabChange, notificationCount = 0
                     strokeWidth={isActive ? 2.5 : 2}
                     fill={isActive && id === 'favorites' ? 'currentColor' : 'none'}
                   />
-                  {id === 'notifications' && notificationCount > 0 && (
+                  {id === 'profile' && notificationCount > 0 && (
                     <span className="absolute -top-0.5 -right-0.5 bg-primary text-primary-foreground text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-lg shadow-primary/40 animate-pulse">
                       {notificationCount > 9 ? '9+' : notificationCount}
                     </span>

@@ -1,4 +1,4 @@
-import { Game, Notification } from './types'
+import { Game, Notification, UserProfile } from './types'
 
 // Generate price history data
 const generatePriceHistory = (basePrice: number, months: number = 12) => {
@@ -17,6 +17,20 @@ const generatePriceHistory = (basePrice: number, months: number = 12) => {
   }
   
   return history
+}
+
+export const mockUser: UserProfile = {
+  id: 'user-1',
+  name: 'Carlos Rodriguez',
+  email: 'carlos.rodriguez@email.com',
+  gamertag: 'xCarlosGamer',
+  avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos',
+  plan: 'free',
+  memberSince: '2024-01-15',
+  alertsEnabled: true,
+  priceDropAlerts: true,
+  lowestEverAlerts: true,
+  wishlistAlerts: true
 }
 
 export const mockGames: Game[] = [
@@ -179,6 +193,230 @@ export const mockGames: Game[] = [
     releaseDate: '2020-03-11',
     rating: 4.9,
     category: 'Adventure'
+  },
+  {
+    id: '11',
+    title: 'Elden Ring',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1245620/library_600x900_2x.jpg',
+    currentPrice: 41.99,
+    originalPrice: 59.99,
+    lowestPrice: 35.99,
+    highestPrice: 59.99,
+    discount: 30,
+    isFavorite: true,
+    priceHistory: generatePriceHistory(59.99),
+    platform: 'All',
+    releaseDate: '2022-02-25',
+    rating: 4.9,
+    category: 'RPG'
+  },
+  {
+    id: '12',
+    title: 'Cyberpunk 2077',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1091500/library_600x900_2x.jpg',
+    currentPrice: 29.99,
+    originalPrice: 59.99,
+    lowestPrice: 24.99,
+    highestPrice: 59.99,
+    discount: 50,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(59.99),
+    platform: 'All',
+    releaseDate: '2020-12-10',
+    rating: 4.5,
+    category: 'RPG'
+  },
+  {
+    id: '13',
+    title: 'Red Dead Redemption 2',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1174180/library_600x900_2x.jpg',
+    currentPrice: 23.99,
+    originalPrice: 59.99,
+    lowestPrice: 19.79,
+    highestPrice: 59.99,
+    discount: 60,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(59.99),
+    platform: 'All',
+    releaseDate: '2019-11-05',
+    rating: 4.8,
+    category: 'Adventure'
+  },
+  {
+    id: '14',
+    title: 'Hogwarts Legacy',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/990080/library_600x900_2x.jpg',
+    currentPrice: 35.99,
+    originalPrice: 59.99,
+    lowestPrice: 29.99,
+    highestPrice: 59.99,
+    discount: 40,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(59.99),
+    platform: 'All',
+    releaseDate: '2023-02-10',
+    rating: 4.6,
+    category: 'RPG'
+  },
+  {
+    id: '15',
+    title: 'FIFA 24',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2195250/library_600x900_2x.jpg',
+    currentPrice: 34.99,
+    originalPrice: 69.99,
+    lowestPrice: 29.99,
+    highestPrice: 69.99,
+    discount: 50,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(69.99),
+    platform: 'All',
+    releaseDate: '2023-09-29',
+    rating: 4.0,
+    category: 'Sports'
+  },
+  {
+    id: '16',
+    title: 'Minecraft',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1672970/library_600x900_2x.jpg',
+    currentPrice: 19.99,
+    originalPrice: 29.99,
+    lowestPrice: 14.99,
+    highestPrice: 29.99,
+    discount: 33,
+    isFavorite: true,
+    priceHistory: generatePriceHistory(29.99),
+    platform: 'All',
+    releaseDate: '2011-11-18',
+    rating: 4.8,
+    category: 'Adventure'
+  },
+  {
+    id: '17',
+    title: "Assassin's Creed Mirage",
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2593010/library_600x900_2x.jpg',
+    currentPrice: 24.99,
+    originalPrice: 49.99,
+    lowestPrice: 24.99,
+    highestPrice: 49.99,
+    discount: 50,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(49.99),
+    platform: 'All',
+    releaseDate: '2023-10-05',
+    rating: 4.2,
+    category: 'Adventure'
+  },
+  {
+    id: '18',
+    title: 'Forza Motorsport',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2440510/library_600x900_2x.jpg',
+    currentPrice: 44.99,
+    originalPrice: 69.99,
+    lowestPrice: 39.99,
+    highestPrice: 69.99,
+    discount: 36,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(69.99),
+    platform: 'All',
+    releaseDate: '2023-10-10',
+    rating: 4.3,
+    category: 'Racing'
+  },
+  {
+    id: '19',
+    title: 'The Elder Scrolls V: Skyrim',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/489830/library_600x900_2x.jpg',
+    currentPrice: 15.99,
+    originalPrice: 39.99,
+    lowestPrice: 9.99,
+    highestPrice: 39.99,
+    discount: 60,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(39.99),
+    platform: 'All',
+    releaseDate: '2016-10-28',
+    rating: 4.7,
+    category: 'RPG'
+  },
+  {
+    id: '20',
+    title: 'Resident Evil 4',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2050650/library_600x900_2x.jpg',
+    currentPrice: 29.99,
+    originalPrice: 59.99,
+    lowestPrice: 29.99,
+    highestPrice: 59.99,
+    discount: 50,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(59.99),
+    platform: 'All',
+    releaseDate: '2023-03-24',
+    rating: 4.8,
+    category: 'Horror'
+  },
+  {
+    id: '21',
+    title: 'Grand Theft Auto V',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/271590/library_600x900_2x.jpg',
+    currentPrice: 14.99,
+    originalPrice: 29.99,
+    lowestPrice: 9.99,
+    highestPrice: 29.99,
+    discount: 50,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(29.99),
+    platform: 'All',
+    releaseDate: '2015-04-14',
+    rating: 4.6,
+    category: 'Adventure'
+  },
+  {
+    id: '22',
+    title: 'Mortal Kombat 1',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1971870/library_600x900_2x.jpg',
+    currentPrice: 34.99,
+    originalPrice: 69.99,
+    lowestPrice: 29.99,
+    highestPrice: 69.99,
+    discount: 50,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(69.99),
+    platform: 'All',
+    releaseDate: '2023-09-19',
+    rating: 4.4,
+    category: 'Fighting'
+  },
+  {
+    id: '23',
+    title: 'Palworld',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1623730/library_600x900_2x.jpg',
+    currentPrice: 26.99,
+    originalPrice: 29.99,
+    lowestPrice: 22.49,
+    highestPrice: 29.99,
+    discount: 10,
+    isFavorite: true,
+    priceHistory: generatePriceHistory(29.99),
+    platform: 'All',
+    releaseDate: '2024-01-19',
+    rating: 4.5,
+    category: 'Adventure'
+  },
+  {
+    id: '24',
+    title: 'Lies of P',
+    coverImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1627720/library_600x900_2x.jpg',
+    currentPrice: 35.99,
+    originalPrice: 59.99,
+    lowestPrice: 35.99,
+    highestPrice: 59.99,
+    discount: 40,
+    isFavorite: false,
+    priceHistory: generatePriceHistory(59.99),
+    platform: 'All',
+    releaseDate: '2023-09-19',
+    rating: 4.6,
+    category: 'RPG'
   }
 ]
 
@@ -230,5 +468,29 @@ export const mockNotifications: Notification[] = [
     read: true,
     newPrice: 29.99,
     oldPrice: 44.99
+  },
+  {
+    id: '5',
+    gameId: '11',
+    gameTitle: 'Elden Ring',
+    gameCover: 'https://cdn.akamai.steamstatic.com/steam/apps/1245620/library_600x900_2x.jpg',
+    type: 'price_drop',
+    message: 'El precio ha bajado un 30%',
+    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 72).toISOString(),
+    read: true,
+    newPrice: 41.99,
+    oldPrice: 59.99
+  },
+  {
+    id: '6',
+    gameId: '13',
+    gameTitle: 'Red Dead Redemption 2',
+    gameCover: 'https://cdn.akamai.steamstatic.com/steam/apps/1174180/library_600x900_2x.jpg',
+    type: 'lowest_ever',
+    message: 'Precio historico alcanzado',
+    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 96).toISOString(),
+    read: true,
+    newPrice: 23.99,
+    oldPrice: 59.99
   }
 ]
