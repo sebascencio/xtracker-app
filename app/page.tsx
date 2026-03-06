@@ -9,7 +9,8 @@ import { FavoritesSection } from '@/components/sections/favorites-section'
 import { NotificationsSection } from '@/components/sections/notifications-section'
 import { SearchSection } from '@/components/sections/search-section'
 import { mockGames, mockNotifications } from '@/lib/mock-data'
-import type { TabType, Game, Notification } from '@/lib/types'
+import { currencies } from '@/lib/types'
+import type { TabType, Game, Currency } from '@/lib/types'
 
 export default function XPriceApp() {
   const [activeTab, setActiveTab] = useState<TabType>('home')
@@ -17,6 +18,7 @@ export default function XPriceApp() {
   const [notifications, setNotifications] = useState(mockNotifications)
   const [selectedGame, setSelectedGame] = useState<Game | null>(null)
   const [isDetailOpen, setIsDetailOpen] = useState(false)
+  const [currency, setCurrency] = useState<Currency>(currencies[0])
 
   const unreadNotifications = notifications.filter(n => !n.read).length
 
@@ -24,7 +26,6 @@ export default function XPriceApp() {
     setGames(prev => prev.map(g => 
       g.id === id ? { ...g, isFavorite: !g.isFavorite } : g
     ))
-    // Also update selectedGame if it's the one being toggled
     setSelectedGame(prev => 
       prev?.id === id ? { ...prev, isFavorite: !prev.isFavorite } : prev
     )
@@ -50,12 +51,18 @@ export default function XPriceApp() {
     setNotifications(prev => prev.map(n => ({ ...n, read: true })))
   }, [])
 
+  const handleCurrencyChange = useCallback((newCurrency: Currency) => {
+    setCurrency(newCurrency)
+  }, [])
+
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
         return (
           <HomeSection 
             games={games}
+            currency={currency}
+            onCurrencyChange={handleCurrencyChange}
             onToggleFavorite={handleToggleFavorite}
             onGameClick={handleGameClick}
           />
@@ -64,6 +71,7 @@ export default function XPriceApp() {
         return (
           <DealsSection 
             games={games}
+            currency={currency}
             onToggleFavorite={handleToggleFavorite}
             onGameClick={handleGameClick}
           />
@@ -72,6 +80,7 @@ export default function XPriceApp() {
         return (
           <FavoritesSection 
             games={games}
+            currency={currency}
             onToggleFavorite={handleToggleFavorite}
             onGameClick={handleGameClick}
           />
@@ -88,6 +97,7 @@ export default function XPriceApp() {
         return (
           <SearchSection 
             games={games}
+            currency={currency}
             onToggleFavorite={handleToggleFavorite}
             onGameClick={handleGameClick}
           />
@@ -111,6 +121,7 @@ export default function XPriceApp() {
 
       <GameDetailSheet 
         game={selectedGame}
+        currency={currency}
         open={isDetailOpen}
         onClose={handleCloseDetail}
         onToggleFavorite={handleToggleFavorite}

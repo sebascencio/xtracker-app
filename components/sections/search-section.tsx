@@ -1,13 +1,14 @@
 "use client"
 
 import { useState, useMemo } from 'react'
-import { Search, X, Clock, TrendingUp } from 'lucide-react'
+import { Search, X, Clock, TrendingUp, Gamepad2 } from 'lucide-react'
 import { GameCard } from '@/components/game-card'
 import { cn } from '@/lib/utils'
-import type { Game } from '@/lib/types'
+import type { Game, Currency } from '@/lib/types'
 
 interface SearchSectionProps {
   games: Game[]
+  currency: Currency
   onToggleFavorite: (id: string) => void
   onGameClick: (game: Game) => void
 }
@@ -15,9 +16,8 @@ interface SearchSectionProps {
 const recentSearches = ['Starfield', 'Forza', 'Halo', 'Gears']
 const trendingSearches = ['Fable', 'Elder Scrolls', 'Call of Duty', 'Diablo']
 
-export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSectionProps) {
+export function SearchSection({ games, currency, onToggleFavorite, onGameClick }: SearchSectionProps) {
   const [query, setQuery] = useState('')
-  const [isFocused, setIsFocused] = useState(false)
 
   const searchResults = useMemo(() => {
     if (!query.trim()) return []
@@ -32,12 +32,17 @@ export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSe
   const hasQuery = query.trim().length > 0
 
   return (
-    <div className="pb-24">
+    <div className="pb-28">
       {/* Header */}
-      <header className="px-5 pt-4 pb-4">
-        <div className="flex items-center gap-2 mb-4">
-          <Search className="w-6 h-6 text-primary" />
-          <h1 className="text-2xl font-bold text-foreground">Buscar</h1>
+      <header className="px-5 pt-6 pb-4">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg shadow-primary/30">
+            <Search className="w-6 h-6 text-primary-foreground" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-foreground tracking-tight">Buscar</h1>
+            <p className="text-xs text-muted-foreground font-medium">Encuentra tu proximo juego</p>
+          </div>
         </div>
 
         {/* Search Input */}
@@ -47,21 +52,19 @@ export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSe
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-            placeholder="Buscar juegos, categorías..."
+            placeholder="Buscar juegos, categorias..."
             className={cn(
-              "w-full h-12 pl-12 pr-10 rounded-xl bg-input text-foreground placeholder:text-muted-foreground",
-              "border border-border focus:border-primary focus:ring-1 focus:ring-primary",
-              "transition-all duration-200 outline-none"
+              "w-full h-14 pl-12 pr-12 rounded-2xl bg-card text-foreground placeholder:text-muted-foreground",
+              "border border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20",
+              "transition-all duration-300 outline-none font-medium"
             )}
           />
           {hasQuery && (
             <button 
               onClick={() => setQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-muted-foreground/20 flex items-center justify-center"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-muted-foreground/20 flex items-center justify-center hover:bg-muted-foreground/30 transition-colors"
             >
-              <X className="w-3 h-3 text-muted-foreground" />
+              <X className="w-3.5 h-3.5 text-muted-foreground" />
             </button>
           )}
         </div>
@@ -70,15 +73,16 @@ export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSe
       {hasQuery ? (
         // Search Results
         <div className="px-5">
-          <p className="text-sm text-muted-foreground mb-4">
-            {searchResults.length} resultado{searchResults.length !== 1 ? 's' : ''} para "{query}"
+          <p className="text-sm text-muted-foreground mb-4 font-medium">
+            {searchResults.length} resultado{searchResults.length !== 1 ? 's' : ''} para <span className="text-primary">"{query}"</span>
           </p>
           {searchResults.length > 0 ? (
             <div className="space-y-2">
               {searchResults.map(game => (
                 <GameCard 
                   key={game.id} 
-                  game={game} 
+                  game={game}
+                  currency={currency}
                   variant="compact"
                   onToggleFavorite={onToggleFavorite}
                   onClick={onGameClick}
@@ -87,8 +91,10 @@ export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSe
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-16">
-              <Search className="w-12 h-12 text-muted-foreground mb-4" />
-              <p className="text-muted-foreground text-center">
+              <div className="w-16 h-16 rounded-2xl bg-secondary/50 flex items-center justify-center mb-4">
+                <Gamepad2 className="w-8 h-8 text-muted-foreground" />
+              </div>
+              <p className="text-muted-foreground text-center font-medium">
                 No se encontraron resultados
               </p>
             </div>
@@ -101,14 +107,14 @@ export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSe
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <Clock className="w-4 h-4 text-muted-foreground" />
-              <h3 className="text-sm font-medium text-muted-foreground">Búsquedas recientes</h3>
+              <h3 className="text-sm font-semibold text-muted-foreground">Busquedas recientes</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {recentSearches.map((term) => (
                 <button
                   key={term}
                   onClick={() => setQuery(term)}
-                  className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm hover:bg-secondary/80 transition-colors"
+                  className="px-4 py-2.5 rounded-xl bg-card text-foreground text-sm font-medium border border-border/50 hover:border-primary/50 transition-all"
                 >
                   {term}
                 </button>
@@ -120,14 +126,14 @@ export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSe
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <TrendingUp className="w-4 h-4 text-primary" />
-              <h3 className="text-sm font-medium text-muted-foreground">Tendencias</h3>
+              <h3 className="text-sm font-semibold text-muted-foreground">Tendencias</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {trendingSearches.map((term) => (
                 <button
                   key={term}
                   onClick={() => setQuery(term)}
-                  className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm hover:bg-primary/20 transition-colors"
+                  className="px-4 py-2.5 rounded-xl bg-primary/10 text-primary text-sm font-semibold border border-primary/20 hover:bg-primary/20 transition-all"
                 >
                   {term}
                 </button>
@@ -137,12 +143,13 @@ export function SearchSection({ games, onToggleFavorite, onGameClick }: SearchSe
 
           {/* Popular Games */}
           <div>
-            <h3 className="text-sm font-medium text-muted-foreground mb-3">Juegos populares</h3>
+            <h3 className="text-sm font-semibold text-muted-foreground mb-3">Juegos populares</h3>
             <div className="grid grid-cols-2 gap-3">
               {games.slice(0, 4).map(game => (
                 <GameCard 
                   key={game.id} 
                   game={game}
+                  currency={currency}
                   onToggleFavorite={onToggleFavorite}
                   onClick={onGameClick}
                 />

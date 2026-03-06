@@ -34,3 +34,22 @@ export interface Notification {
 }
 
 export type TabType = 'home' | 'deals' | 'favorites' | 'notifications' | 'search'
+
+export interface Currency {
+  code: string
+  symbol: string
+  name: string
+  flag: string
+  rate: number
+}
+
+export const currencies: Currency[] = [
+  { code: 'USD', symbol: '$', name: 'US Dollar', flag: 'US', rate: 1 },
+  { code: 'MXN', symbol: '$', name: 'Peso Mexicano', flag: 'MX', rate: 17.15 },
+  { code: 'EUR', symbol: '\u20AC', name: 'Euro', flag: 'EU', rate: 0.92 },
+  { code: 'GBP', symbol: '\u00A3', name: 'British Pound', flag: 'GB', rate: 0.79 },
+  { code: 'ARS', symbol: '$', name: 'Peso Argentino', flag: 'AR', rate: 875 },
+  { code: 'BRL', symbol: 'R$', name: 'Real Brasileno', flag: 'BR', rate: 4.97 },
+  { code: 'COP', symbol: '$', name: 'Peso Colombiano', flag: 'CO', rate: 3950 },
+  { code: 'CLP', symbol: '$', name: 'Peso Chileno', flag: 'CL', rate: 925 },
+]
