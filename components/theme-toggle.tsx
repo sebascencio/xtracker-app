@@ -13,9 +13,9 @@ export function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
     <button
       onClick={onToggle}
       className={cn(
-        "fixed bottom-[7.5rem] left-1/2 -translate-x-1/2 z-40",
-        "h-9 px-4 rounded-full",
-        "flex items-center justify-center gap-2",
+        "fixed bottom-[6.5rem] right-5 z-40",
+        "w-10 h-10 rounded-full",
+        "flex items-center justify-center",
         "transition-all duration-300 ease-out",
         "shadow-lg active:scale-95",
         isDark 
@@ -24,22 +24,11 @@ export function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
       )}
       aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
     >
-      <div className={cn(
-        "flex items-center gap-2 text-xs font-medium transition-colors",
-        isDark ? "text-muted-foreground" : "text-gray-600"
-      )}>
-        {isDark ? (
-          <>
-            <Moon className="w-4 h-4" />
-            <span>Oscuro</span>
-          </>
-        ) : (
-          <>
-            <Sun className="w-4 h-4 text-amber-500" />
-            <span>Claro</span>
-          </>
-        )}
-      </div>
+      {isDark ? (
+        <Moon className="w-5 h-5 text-muted-foreground" />
+      ) : (
+        <Sun className="w-5 h-5 text-amber-500" />
+      )}
     </button>
   )
 }
