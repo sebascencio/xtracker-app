@@ -13,6 +13,7 @@ export interface Game {
   releaseDate: string
   rating: number
   category: string
+  xboxStoreUrl: string
 }
 
 export interface PricePoint {

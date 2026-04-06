@@ -185,6 +185,7 @@ export function GameDetailSheet({ game, currency, open, onClose, onToggleFavorit
             </Button>
             <Button 
               className="flex-1 h-13 rounded-2xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/30"
+              onClick={() => window.open(game.xboxStoreUrl, '_blank', 'noopener,noreferrer')}
             >
               <ExternalLink className="w-4 h-4 mr-2" />
               Ver en Xbox Store
