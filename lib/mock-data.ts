@@ -49,7 +49,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-09-06',
     rating: 4.2,
     category: 'RPG',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/starfield/9ncls0dls04h'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/starfield/9NCJG22MFQGS'
   },
   {
     id: '2',
@@ -66,7 +66,7 @@ export const mockGames: Game[] = [
     releaseDate: '2021-11-09',
     rating: 4.8,
     category: 'Racing',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/forza-horizon-5/9nxn39crlgml'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/forza-horizon-5/9NKX70BBCDRN'
   },
   {
     id: '3',
@@ -83,7 +83,7 @@ export const mockGames: Game[] = [
     releaseDate: '2021-12-08',
     rating: 4.5,
     category: 'Shooter',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/halo-infinite/9pp5g1f0c2b6'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/halo-infinite/9PP5G1F0C2B6'
   },
   {
     id: '4',
@@ -100,7 +100,7 @@ export const mockGames: Game[] = [
     releaseDate: '2018-03-20',
     rating: 4.3,
     category: 'Adventure',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/sea-of-thieves/9p2n57mc619k'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/sea-of-thieves-2025-edition/9P2N57MC619K'
   },
   {
     id: '5',
@@ -117,7 +117,7 @@ export const mockGames: Game[] = [
     releaseDate: '2020-08-18',
     rating: 4.7,
     category: 'Simulation',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/microsoft-flight-simulator-standard/9nxn8gf8n9ht'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/microsoft-flight-simulator-2024-standard-edition/9NL96N97RNT8'
   },
   {
     id: '6',
@@ -134,7 +134,7 @@ export const mockGames: Game[] = [
     releaseDate: '2019-09-10',
     rating: 4.6,
     category: 'Shooter',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/gears-5/c2kdnlt2h7dm'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/gears-5/C2KDNLT2H7DM'
   },
   {
     id: '7',
@@ -151,7 +151,7 @@ export const mockGames: Game[] = [
     releaseDate: '2021-10-28',
     rating: 4.4,
     category: 'Strategy',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/age-of-empires-iv/9p4924nq30c7'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/age-of-empires-iv-anniversary-edition/9NBLGGH4PBBM'
   },
   {
     id: '8',
@@ -168,7 +168,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-06-06',
     rating: 4.3,
     category: 'RPG',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/diablo-iv/9p3v5827kq4m'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/diablo-iv-standard-edition/9N3LKVC0G8CG'
   },
   {
     id: '9',
@@ -185,7 +185,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-11-10',
     rating: 4.1,
     category: 'Shooter',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/call-of-duty-modern-warfare-iii/9p4g4qfzg4zn'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/call-of-duty-modern-warfare-iii/9NJ8WV6Q5HPB'
   },
   {
     id: '10',
@@ -202,7 +202,7 @@ export const mockGames: Game[] = [
     releaseDate: '2020-03-11',
     rating: 4.9,
     category: 'Adventure',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/ori-and-the-will-of-the-wisps/9n8cd0xzklp4'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/ori-and-the-will-of-the-wisps/9N8CD0XZKLP4'
   },
   {
     id: '11',
@@ -219,7 +219,7 @@ export const mockGames: Game[] = [
     releaseDate: '2022-02-25',
     rating: 4.9,
     category: 'RPG',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/elden-ring/9p3j32ctxlrz'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/elden-ring/9P3J32CTXLRZ'
   },
   {
     id: '12',
@@ -236,7 +236,7 @@ export const mockGames: Game[] = [
     releaseDate: '2020-12-10',
     rating: 4.5,
     category: 'RPG',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/cyberpunk-2077/bx3m8l83bbrw'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/cyberpunk-2077/BX3M8L83BBRW'
   },
   {
     id: '13',
@@ -253,7 +253,7 @@ export const mockGames: Game[] = [
     releaseDate: '2019-11-05',
     rating: 4.8,
     category: 'Adventure',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/red-dead-redemption-2/9n2zkng3f4wq'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/red-dead-redemption-2/9N2ZDN7NWQKV'
   },
   {
     id: '14',
@@ -270,7 +270,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-02-10',
     rating: 4.6,
     category: 'RPG',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/hogwarts-legacy/9nkh1k0z0kbq'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/hogwarts-legacy/9NK20QZ5R3NM'
   },
   {
     id: '15',
@@ -287,7 +287,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-09-29',
     rating: 4.0,
     category: 'Sports',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/ea-sports-fc-24/9nvlswdl66bf'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/ea-sports-fc-24-standard-edition/9PLHZVGPD8WC'
   },
   {
     id: '16',
@@ -304,7 +304,7 @@ export const mockGames: Game[] = [
     releaseDate: '2011-11-18',
     rating: 4.8,
     category: 'Adventure',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/minecraft/9mvxmvt8zkwc'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/minecraft/9NBLGGH537BL'
   },
   {
     id: '17',
@@ -321,7 +321,7 @@ export const mockGames: Game[] = [
     releaseDate: '2020-09-25',
     rating: 4.5,
     category: 'Adventure',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/mafia-definitive-edition/9n19g7vs8jw6'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/mafia-definitive-edition/9NZ89HQXB02X'
   },
   {
     id: '18',
@@ -338,7 +338,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-10-10',
     rating: 4.3,
     category: 'Racing',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/forza-motorsport/9p6dqw8xspff'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/forza-motorsport/9PJCJFJ1RH49'
   },
   {
     id: '19',
@@ -355,7 +355,7 @@ export const mockGames: Game[] = [
     releaseDate: '2016-10-28',
     rating: 4.7,
     category: 'RPG',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/the-elder-scrolls-v-skyrim-special-edition/bq1w1t1fc14w'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/the-elder-scrolls-v-skyrim-special-edition/BQ1W1T1FC14W'
   },
   {
     id: '20',
@@ -372,7 +372,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-03-24',
     rating: 4.8,
     category: 'Horror',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/resident-evil-4/9p7vgfvhlqwl'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/resident-evil-4/9MTJJ7WP9BSK'
   },
   {
     id: '21',
@@ -389,7 +389,7 @@ export const mockGames: Game[] = [
     releaseDate: '2015-04-14',
     rating: 4.6,
     category: 'Adventure',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/grand-theft-auto-v/bpj686w6s0nh'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/grand-theft-auto-v/BT5P2X999VH2'
   },
   {
     id: '22',
@@ -406,7 +406,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-09-19',
     rating: 4.4,
     category: 'Fighting',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/mortal-kombat-1/9phr5s75bwvj'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/mortal-kombat-1/9N3WDN7M5KM5'
   },
   {
     id: '23',
@@ -423,7 +423,7 @@ export const mockGames: Game[] = [
     releaseDate: '2024-01-19',
     rating: 4.5,
     category: 'Adventure',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/palworld/9p5l3c1898vn'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/palworld/9NKG6Z6TF3SB'
   },
   {
     id: '24',
@@ -440,7 +440,7 @@ export const mockGames: Game[] = [
     releaseDate: '2023-09-19',
     rating: 4.6,
     category: 'RPG',
-    xboxStoreUrl: 'https://www.xbox.com/games/store/lies-of-p/9n8p9c6wqgwk'
+    xboxStoreUrl: 'https://www.xbox.com/en-US/games/store/lies-of-p/9NKJQSCGCLXJ'
   }
 ]
 
