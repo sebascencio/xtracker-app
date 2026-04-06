@@ -3,7 +3,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import { BottomNavigation } from '@/components/bottom-navigation'
 import { StickyHeader } from '@/components/sticky-header'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { GameDetailSheet } from '@/components/game-detail-sheet'
 import { HomeSection } from '@/components/sections/home-section'
 import { DealsSection } from '@/components/sections/deals-section'
@@ -134,16 +133,13 @@ export default function XPriceApp() {
       <StickyHeader 
         currency={currency}
         onCurrencyChange={handleCurrencyChange}
+        isDark={isDark}
+        onThemeToggle={handleThemeToggle}
       />
 
       <div className="max-w-lg mx-auto">
         {renderContent()}
       </div>
-
-      <ThemeToggle 
-        isDark={isDark}
-        onToggle={handleThemeToggle}
-      />
 
       <BottomNavigation 
         activeTab={activeTab}
