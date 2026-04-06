@@ -5,7 +5,8 @@ import Image from 'next/image'
 import { 
   User, Mail, Gamepad2, Crown, Bell, 
   ChevronRight, Settings, LogOut, Shield,
-  CreditCard, Smartphone, TrendingDown, Tag, Sparkles, X, Check
+  CreditCard, Smartphone, TrendingDown, Tag, Sparkles, X, Check,
+  Globe, Moon, Volume2, Vibrate, Eye, Lock, Trash2, Download, KeyRound
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
@@ -29,7 +30,20 @@ export function ProfileSection({
 }: ProfileSectionProps) {
   const [showPaymentSheet, setShowPaymentSheet] = useState(false)
   const [showAlertsSheet, setShowAlertsSheet] = useState(false)
+  const [showPreferencesSheet, setShowPreferencesSheet] = useState(false)
+  const [showPrivacySheet, setShowPrivacySheet] = useState(false)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<'apple' | 'card' | null>(null)
+  
+  // Preferences state
+  const [language, setLanguage] = useState('es')
+  const [autoPlayVideos, setAutoPlayVideos] = useState(true)
+  const [soundEffects, setSoundEffects] = useState(true)
+  const [hapticFeedback, setHapticFeedback] = useState(true)
+  
+  // Privacy state
+  const [twoFactorAuth, setTwoFactorAuth] = useState(false)
+  const [biometricLogin, setBiometricLogin] = useState(true)
+  const [shareActivity, setShareActivity] = useState(false)
 
   const unreadCount = notifications.filter(n => !n.read).length
 
@@ -201,7 +215,10 @@ export function ProfileSection({
             Configuracion
           </h2>
           <div className="bg-card rounded-2xl divide-y divide-border/50 overflow-hidden">
-            <button className="w-full flex items-center gap-4 p-4 hover:bg-secondary/50 transition-colors">
+            <button 
+              onClick={() => setShowPreferencesSheet(true)}
+              className="w-full flex items-center gap-4 p-4 hover:bg-secondary/50 transition-colors"
+            >
               <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
                 <Settings className="w-5 h-5 text-muted-foreground" />
               </div>
@@ -210,7 +227,10 @@ export function ProfileSection({
               </div>
               <ChevronRight className="w-5 h-5 text-muted-foreground" />
             </button>
-            <button className="w-full flex items-center gap-4 p-4 hover:bg-secondary/50 transition-colors">
+            <button 
+              onClick={() => setShowPrivacySheet(true)}
+              className="w-full flex items-center gap-4 p-4 hover:bg-secondary/50 transition-colors"
+            >
               <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
                 <Shield className="w-5 h-5 text-muted-foreground" />
               </div>
@@ -468,6 +488,267 @@ export function ProfileSection({
                     <p className="text-sm text-muted-foreground">Sin notificaciones</p>
                   </div>
                 )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Preferences Sheet */}
+      {showPreferencesSheet && (
+        <div className="fixed inset-0 z-50">
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowPreferencesSheet(false)}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-background rounded-t-3xl max-h-[85vh] overflow-hidden safe-area-bottom animate-in slide-in-from-bottom duration-300">
+            <div className="sticky top-0 bg-background border-b border-border/50 p-5 flex items-center justify-between">
+              <h2 className="text-xl font-bold text-foreground">Preferencias</h2>
+              <button 
+                onClick={() => setShowPreferencesSheet(false)}
+                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center"
+              >
+                <X className="w-4 h-4 text-muted-foreground" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto p-5 pb-10">
+              {/* Language */}
+              <div className="bg-card rounded-2xl p-4 mb-4">
+                <h3 className="text-sm font-semibold text-foreground mb-4">Idioma y region</h3>
+                <div className="space-y-3">
+                  <button 
+                    onClick={() => setLanguage('es')}
+                    className={cn(
+                      "w-full flex items-center gap-3 p-3 rounded-xl transition-all",
+                      language === 'es' ? "bg-primary/10 border border-primary/30" : "bg-secondary/50"
+                    )}
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                      <Globe className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="text-sm font-medium text-foreground">Espanol</p>
+                      <p className="text-xs text-muted-foreground">Idioma de la aplicacion</p>
+                    </div>
+                    {language === 'es' && (
+                      <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center">
+                        <Check className="w-3 h-3 text-primary-foreground" />
+                      </div>
+                    )}
+                  </button>
+                  <button 
+                    onClick={() => setLanguage('en')}
+                    className={cn(
+                      "w-full flex items-center gap-3 p-3 rounded-xl transition-all",
+                      language === 'en' ? "bg-primary/10 border border-primary/30" : "bg-secondary/50"
+                    )}
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                      <Globe className="w-4 h-4 text-muted-foreground" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="text-sm font-medium text-foreground">English</p>
+                      <p className="text-xs text-muted-foreground">App language</p>
+                    </div>
+                    {language === 'en' && (
+                      <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center">
+                        <Check className="w-3 h-3 text-primary-foreground" />
+                      </div>
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* App Behavior */}
+              <div className="bg-card rounded-2xl p-4 mb-4">
+                <h3 className="text-sm font-semibold text-foreground mb-4">Comportamiento de la app</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                        <Eye className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-foreground">Auto-reproducir videos</p>
+                        <p className="text-xs text-muted-foreground">En trailers de juegos</p>
+                      </div>
+                    </div>
+                    <Switch 
+                      checked={autoPlayVideos}
+                      onCheckedChange={setAutoPlayVideos}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                        <Volume2 className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-foreground">Efectos de sonido</p>
+                        <p className="text-xs text-muted-foreground">Sonidos de la interfaz</p>
+                      </div>
+                    </div>
+                    <Switch 
+                      checked={soundEffects}
+                      onCheckedChange={setSoundEffects}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                        <Vibrate className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-foreground">Vibracion haptica</p>
+                        <p className="text-xs text-muted-foreground">Retroalimentacion tactil</p>
+                      </div>
+                    </div>
+                    <Switch 
+                      checked={hapticFeedback}
+                      onCheckedChange={setHapticFeedback}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Cache */}
+              <div className="bg-card rounded-2xl p-4">
+                <h3 className="text-sm font-semibold text-foreground mb-4">Almacenamiento</h3>
+                <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors">
+                  <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                    <Trash2 className="w-4 h-4 text-muted-foreground" />
+                  </div>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm font-medium text-foreground">Limpiar cache</p>
+                    <p className="text-xs text-muted-foreground">Libera espacio en tu dispositivo</p>
+                  </div>
+                  <span className="text-xs text-muted-foreground">45 MB</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Privacy & Security Sheet */}
+      {showPrivacySheet && (
+        <div className="fixed inset-0 z-50">
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowPrivacySheet(false)}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-background rounded-t-3xl max-h-[85vh] overflow-hidden safe-area-bottom animate-in slide-in-from-bottom duration-300">
+            <div className="sticky top-0 bg-background border-b border-border/50 p-5 flex items-center justify-between">
+              <h2 className="text-xl font-bold text-foreground">Privacidad y seguridad</h2>
+              <button 
+                onClick={() => setShowPrivacySheet(false)}
+                className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center"
+              >
+                <X className="w-4 h-4 text-muted-foreground" />
+              </button>
+            </div>
+
+            <div className="overflow-y-auto p-5 pb-10">
+              {/* Security */}
+              <div className="bg-card rounded-2xl p-4 mb-4">
+                <h3 className="text-sm font-semibold text-foreground mb-4">Seguridad de la cuenta</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center">
+                        <KeyRound className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-foreground">Autenticacion de 2 factores</p>
+                        <p className="text-xs text-muted-foreground">Capa extra de seguridad</p>
+                      </div>
+                    </div>
+                    <Switch 
+                      checked={twoFactorAuth}
+                      onCheckedChange={setTwoFactorAuth}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                        <Smartphone className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-foreground">Face ID / Touch ID</p>
+                        <p className="text-xs text-muted-foreground">Inicio de sesion biometrico</p>
+                      </div>
+                    </div>
+                    <Switch 
+                      checked={biometricLogin}
+                      onCheckedChange={setBiometricLogin}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Privacy */}
+              <div className="bg-card rounded-2xl p-4 mb-4">
+                <h3 className="text-sm font-semibold text-foreground mb-4">Privacidad</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                        <Eye className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-foreground">Compartir actividad</p>
+                        <p className="text-xs text-muted-foreground">Mostrar juegos en tu perfil</p>
+                      </div>
+                    </div>
+                    <Switch 
+                      checked={shareActivity}
+                      onCheckedChange={setShareActivity}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Data Management */}
+              <div className="bg-card rounded-2xl p-4 mb-4">
+                <h3 className="text-sm font-semibold text-foreground mb-4">Gestion de datos</h3>
+                <div className="space-y-2">
+                  <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors">
+                    <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                      <Download className="w-4 h-4 text-muted-foreground" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="text-sm font-medium text-foreground">Descargar mis datos</p>
+                      <p className="text-xs text-muted-foreground">Exporta tu informacion</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  </button>
+                  <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors">
+                    <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                      <Lock className="w-4 h-4 text-muted-foreground" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="text-sm font-medium text-foreground">Cambiar contrasena</p>
+                      <p className="text-xs text-muted-foreground">Actualiza tu contrasena</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Danger Zone */}
+              <div className="bg-destructive/10 rounded-2xl p-4 border border-destructive/20">
+                <h3 className="text-sm font-semibold text-destructive mb-4">Zona de peligro</h3>
+                <button className="w-full flex items-center gap-3 p-3 rounded-xl bg-destructive/10 hover:bg-destructive/20 transition-colors">
+                  <div className="w-9 h-9 rounded-lg bg-destructive/20 flex items-center justify-center">
+                    <Trash2 className="w-4 h-4 text-destructive" />
+                  </div>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm font-medium text-destructive">Eliminar cuenta</p>
+                    <p className="text-xs text-destructive/70">Esta accion es irreversible</p>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-destructive" />
+                </button>
               </div>
             </div>
           </div>
