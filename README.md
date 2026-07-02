@@ -60,7 +60,7 @@ Si deseas clonar este repositorio para explorar la interfaz, auditar el código 
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/sebascencio/xtracker-app.git](https://github.com/sebascencio/xtracker-app.git)
+   git clone https://github.com/sebascencio/xtracker-app.git
    cd xtracker-app
    ```
 
