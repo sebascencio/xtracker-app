@@ -83,4 +83,4 @@ Si deseas clonar este repositorio para explorar la interfaz, auditar el código 
    ```
 
 6. **Visualizar la aplicación:**
-   Abre http://localhost:3000 en tu navegador web. **Se recomienda activar la vista de dispositivo movil en el dev tools.** 
+   Abre http://localhost:3000 en tu navegador web. **Se recomienda activar la vista de dispositivo movil en devtools.** 
