@@ -68,7 +68,7 @@ Si deseas clonar este repositorio para explorar la interfaz, auditar el código 
    ```bash
    pnpm install
    ```
-   # o alternativamente:
+   o alternativamente:
    ```bash
    npm install
    ```
@@ -77,7 +77,7 @@ Si deseas clonar este repositorio para explorar la interfaz, auditar el código 
    ```bash
    pnpm dev
    ```
-   # o alternativamente:
+   o alternativamente:
    ```bash
    npm run dev
    ```
