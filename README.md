@@ -67,14 +67,20 @@ Si deseas clonar este repositorio para explorar la interfaz, auditar el código 
 2. **Instalar dependencias:**
    ```bash
    pnpm install
-   # o alternativamente: npm install
+   ```
+   # o alternativamente:
+   ```bash
+   npm install
    ```
 
-3. **Levantar el servidor de desarrollo local:**
+4. **Levantar el servidor de desarrollo local:**
    ```bash
    pnpm dev
-   # o alternativamente: npm run dev
+   ```
+   # o alternativamente:
+   ```bash
+   npm run dev
    ```
 
-4. **Visualizar la aplicación:**
+6. **Visualizar la aplicación:**
    Abre http://localhost:3000 en tu navegador web. **Se recomienda activar la vista de dispositivo movil en el dev tools.** 
